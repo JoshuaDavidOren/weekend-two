@@ -21,4 +21,9 @@ function math() {
 
 function nowShowMath(sMath) {
     console.log('sMath', sMath);
+    $('#mathList').empty();
+
+    for (let past of sMath) {
+        $('#mathList').append(`<li>${past}</li>`);
+    }
 }
