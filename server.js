@@ -22,6 +22,11 @@ app.get('/math', function(req, res) {
     });
 
 });
+app.post('/math', function(req, res) {
+    console.log('We have the equation', req.body);
+    res.sendStatus(201)
+})
+
 
 let aMath = [1, 2, 3];
 
