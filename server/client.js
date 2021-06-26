@@ -3,6 +3,10 @@ $(document).ready(connected);
 function connected() {
     console.log('JQ');
     math();
+    $('#1').on('click', setOpp1);
+    $('#2').on('click', setOpp2);
+    $('#3').on('click', setOpp3);
+    $('#4').on('click', setOpp4);
 }
 
 function math() {
@@ -10,10 +14,10 @@ function math() {
             method: 'GET',
             url: '/math'
         })
-        .then(function(showMath, answer) {
+        .then(function(showMath) {
             console.log('Your math Sir', showMath);
-            nowShowMath(showMath);
-            showAnswer(answer);
+            nowShowMath(showMath.object.aMath);
+            showAnswer(showMath.object.answer);
         })
         .catch(function(error) {
             console.log('Do you even math bro!', error);
@@ -35,7 +39,24 @@ function nowShowMath(sMath) {
     }
 }
 
-let opps = 0;
+var opps = 0;
+
+function setOpp1() {
+    opps = 1
+}
+
+function setOpp2() {
+    opps = 2
+}
+
+function setOpp3() {
+    opps = 3
+}
+
+function setOpp4() {
+    opps = 4
+}
+
 
 function doMath() {
     $.ajax({

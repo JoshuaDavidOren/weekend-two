@@ -13,7 +13,13 @@ app.listen(port, () => {
 app.get('/math', function(req, res) {
     console.log('Req method: ', req.method);
     console.log('Req for /math was made');
-    res.send(aMath, answer);
+    res.send({
+        object: {
+            aMath: aMath,
+            answer: answer
+        }
+
+    });
 
 });
 
