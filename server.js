@@ -36,19 +36,19 @@ app.post('/math', function(req, res) {
     switch (Number(opp)) {
         case 1:
             answer = Number(firstN) + Number(secondN);
-            aMath.push(`${firstN},'+',${secondN},'=', ${answer}`);
+            aMath.push(`${firstN}+${secondN}=${answer}`);
             break;
         case 2:
             answer = Number(firstN) - Number(secondN);
-            aMath.push(`${firstN},'-',${secondN},'=', ${answer}`);
+            aMath.push(`${firstN}-${secondN}=${answer}`);
             break;
         case 3:
             answer = Number(firstN) * Number(secondN);
-            aMath.push(`${firstN},'x',${secondN},'=', ${answer}`);
+            aMath.push(`${firstN}x${secondN}=${answer}`);
             break;
         case 4:
             answer = Number(firstN) / Number(secondN);
-            aMath.push(`${firstN},'÷',${secondN},'=', ${answer}`);
+            aMath.push(`${firstN}÷${secondN}=${answer}`);
             break;
 
         default:

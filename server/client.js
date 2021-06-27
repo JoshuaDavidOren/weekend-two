@@ -60,25 +60,38 @@ function setOpp4() {
 
 
 function doMath() {
-    $.ajax({
-            method: 'POST',
-            url: '/math',
-            data: {
-                mathProblem: {
-                    num1: $('#num1').val(),
-                    num2: $('#num2').val(),
-                    operator: opps
+    console.log('the number one', Number($('#num1').val()));
+    if ($('#num1').val() === '') {
+        alert('PUT IN A NUMBER FIRST!!!')
+    }
+    if ($('#num2').val() === '') {
+        alert('YOU FORGOT THE SECOND NUMBER!!!')
+    }
+    if (opps === 0) {
+        alert('PICK AN OPERATOR!!!')
+    } else {
+        $.ajax({
+                method: 'POST',
+                url: '/math',
+                data: {
+                    mathProblem: {
+                        num1: $('#num1').val(),
+                        num2: $('#num2').val(),
+                        operator: opps
+                    }
                 }
-            }
-        })
-        .then(function(banana) {
-            console.log('Equation sent');
-            math();
-        })
-        .catch(function(error) {
-            alert('Do better Joshua');
-        });
-    $('#num1').val('');
-    $('#num2').val('');
-    opps = 0;
+            })
+            .then(function(banana) {
+                console.log('Equation sent');
+                math();
+            })
+            .catch(function(error) {
+                alert('Do better Joshua');
+            });
+        $('#num1').val('');
+        $('#num2').val('');
+        opps = 0;
+    }
 }
+
+// ((Number($('#num1').val()) === Number) && (Number($('#num2').val()) === Number) && (opps > 0))
