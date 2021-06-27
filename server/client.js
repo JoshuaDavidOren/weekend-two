@@ -7,6 +7,7 @@ function connected() {
     $('#2').on('click', setOpp2);
     $('#3').on('click', setOpp3);
     $('#4').on('click', setOpp4);
+    $('#equal').on('click', doMath)
 }
 
 function math() {
@@ -63,11 +64,10 @@ function doMath() {
             method: 'POST',
             url: '/math',
             data: {
-                problem: {
+                mathProblem: {
                     num1: $('#num1').val(),
                     num2: $('#num2').val(),
-                    operator: opps,
-                    answer: ''
+                    operator: opps
                 }
             }
         })
@@ -80,4 +80,5 @@ function doMath() {
         });
     $('#num1').val('');
     $('#num2').val('');
+    opps = 0;
 }
