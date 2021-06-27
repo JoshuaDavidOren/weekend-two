@@ -63,3 +63,15 @@ app.post('/math', function(req, res) {
     console.log('array', aMath);
     res.sendStatus(201)
 });
+
+app.delete('/math', function(req, res) {
+    let id = req.params;
+
+    Blog.findByIdAndRemove(id).then(function(docs) {
+        res.sendStatus(200)({
+            docs
+        })
+    }).catch(function(error) {
+        res.status(400)
+    });
+});

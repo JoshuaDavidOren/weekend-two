@@ -9,6 +9,7 @@ function connected() {
     $('#3').on('click', setOpp3);
     $('#4').on('click', setOpp4);
     $('#equal').on('click', doMath)
+    $('#yes').on('click', deletE);
 }
 
 function math() {
@@ -62,7 +63,7 @@ function setOpp4() {
 
 function doMath() {
     if (($('#num1').val()) === '') {
-        alert('PUT IN A NUMBER FIRST!!!');
+        alert('PUT IN THE FIRST NUMBER!!!...please');
     } else if (($('#num2').val()) === '') {
         alert('YOU FORGOT THE SECOND NUMBER!!!');
     } else if (opps === 0) {
@@ -95,5 +96,23 @@ function doMath() {
 }
 let u = 1 / 0;
 console.log('whats up', u);
+
+function deletE() {
+    $.ajax({
+            method: 'DELETE',
+            url: '/math',
+            data: {
+
+            }
+        })
+        .then(function() {
+            console.log('hey where did all of our math go?');
+            math()
+        })
+        .catch(function() {
+            alert('you will never delete the history of MATH')
+        })
+
+}
 
 // ((Number($('#num1').val()) === Number) && (Number($('#num2').val()) === Number) && (opps > 0))
