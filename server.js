@@ -33,7 +33,7 @@ app.post('/math', function(req, res) {
     let firstN = problem.num1;
     let secondN = problem.num2;
     let opp = problem.operator;
-    switch (opp) {
+    switch (Number(opp)) {
         case 1:
             answer = Number(firstN) + Number(secondN);
             aMath.push(`${firstN},'+',${secondN},'=', ${answer}`);
