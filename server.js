@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.listen(port, () => {
     console.log('I\'m the port I\'m the port I\'m the port I\'m the port, I am the port', port);
 });
+let aMath = [];
+
+let answer = '';
 
 app.get('/math', function(req, res) {
     console.log('Req method: ', req.method);
@@ -60,8 +63,3 @@ app.post('/math', function(req, res) {
     console.log('array', aMath);
     res.sendStatus(201)
 });
-
-
-let aMath = [];
-
-let answer = 0;

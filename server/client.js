@@ -3,6 +3,7 @@ $(document).ready(connected);
 function connected() {
     console.log('JQ');
     math();
+    showAnswer('none')
     $('#1').on('click', setOpp1);
     $('#2').on('click', setOpp2);
     $('#3').on('click', setOpp3);
@@ -36,7 +37,7 @@ function nowShowMath(sMath) {
     $('#mathList').empty();
 
     for (let past of sMath) {
-        $('#mathList').append(`<li>${past}</li>`);
+        $('#mathList').prepend(`<li>${past}</li>`);
     }
 }
 
@@ -60,15 +61,14 @@ function setOpp4() {
 
 
 function doMath() {
-    console.log('the number one', Number($('#num1').val()));
-    if ($('#num1').val() === '') {
-        alert('PUT IN A NUMBER FIRST!!!')
-    }
-    if ($('#num2').val() === '') {
-        alert('YOU FORGOT THE SECOND NUMBER!!!')
-    }
-    if (opps === 0) {
-        alert('PICK AN OPERATOR!!!')
+    if (($('#num1').val()) === '') {
+        alert('PUT IN A NUMBER FIRST!!!');
+    } else if (($('#num2').val()) === '') {
+        alert('YOU FORGOT THE SECOND NUMBER!!!');
+    } else if (opps === 0) {
+        alert('PICK AN OPERATOR!!!');
+    } else if ((opps === 4) && (Number($('#num2').val() == 0))) {
+        alert('DO NOT F WITH ME YOU CAN NOT DIVIDE BY ZERO');
     } else {
         $.ajax({
                 method: 'POST',
@@ -93,5 +93,7 @@ function doMath() {
         opps = 0;
     }
 }
+let u = 1 / 0;
+console.log('whats up', u);
 
 // ((Number($('#num1').val()) === Number) && (Number($('#num2').val()) === Number) && (opps > 0))
